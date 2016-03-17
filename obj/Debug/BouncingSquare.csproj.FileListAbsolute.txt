@@ -1,7 +1,6 @@
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\bin\Debug\BouncingSquare.exe.config
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\bin\Debug\BouncingSquare.exe
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\bin\Debug\BouncingSquare.pdb
-c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.csprojResolveAssemblyReference.cache
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.frmSquare.resources
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.Properties.Resources.resources
 c:\users\jfischer\documents\visual studio 2015\Projects\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.csproj.GenerateResource.Cache

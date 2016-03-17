@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace BouncingSquare
 {
-    public class Square: IDisposable
+    public class Square: Event, IDisposable
     {
         #region Private Members
         private Guid _id = Guid.Empty;
@@ -19,7 +19,6 @@ namespace BouncingSquare
         private int _yDir = 0;
         private Random _rnd = null;
         private Paddle _paddle = null;
-        private Label _lblScore = null;
         private int _Value = 0;
 
         #endregion
@@ -62,10 +61,9 @@ namespace BouncingSquare
             if (location.Y >= _form.Height - _box.Height)
             {
                 Dispose();
-                //change the score
-                int score = Convert.ToInt32(_lblScore.Text);
-                score -= _Value;
-                _lblScore.Text = score.ToString();
+                ScoreEventArgs e = 
+                    new ScoreEventArgs(string.Empty, -this._Value);
+                RaiseEvent(this, e);
             }
             else if (location.Y <= 0)
             {
@@ -82,10 +80,9 @@ namespace BouncingSquare
             else if (_paddle.Box.Bounds.IntersectsWith(_box.Bounds))
             {
                 _yDir = -_yDir;
-                //change the score
-                int score = Convert.ToInt32(_lblScore.Text);
-                score += _Value;
-                _lblScore.Text = score.ToString();
+                ScoreEventArgs e = 
+                    new ScoreEventArgs(String.Empty, _Value);
+                RaiseEvent(this, e);
             }
         }
         #endregion
@@ -100,11 +97,10 @@ namespace BouncingSquare
 
         #region Construction
         public Square(Form frm, 
-                      Random rnd, Paddle paddle, Label lbl)
+                      Random rnd, Paddle paddle)
         {
            
             _Value = rnd.Next(0, 6);
-            _lblScore = lbl;
             _paddle = paddle;
             _rnd = rnd; 
             _form = frm;
@@ -116,10 +112,6 @@ namespace BouncingSquare
             _box.Height = 20;
 
             _box.BackColor = Color.White;
-            //_box.BackColor = Color.FromArgb(
-            //    _rnd.Next(0, 256), 
-            //    _rnd.Next(0, 256), 
-            //    _rnd.Next(0, 256));
 
             Point location = new Point();
             location.X = _rnd.Next(0, _form.Width-_box.Width);
